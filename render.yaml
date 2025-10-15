@@ -8,3 +8,6 @@ services:
     startCommand: python3 app.py
     repo: https://github.com/TheRepthon/m.git
     region: frankfurt
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
