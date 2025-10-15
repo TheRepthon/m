@@ -1,0 +1,10 @@
+services:
+  - type: web
+    runtime: python
+    name: Deploy
+    plan: free
+    branch: main
+    buildCommand: bash build.sh
+    startCommand: python3 app.py
+    repo: https://github.com/TheRepthon/m.git
+    region: frankfurt
