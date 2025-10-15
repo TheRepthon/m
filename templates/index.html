@@ -1,0 +1,71 @@
+   <!DOCTYPE html>
+   <html lang="ar">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>استخراج جلسة تيليجرام</title>
+       <style>
+           body {
+               font-family: Arial, sans-serif;
+               margin: 0;
+               padding: 0;
+               background-image: url('https://plus.unsplash.com/premium_photo-1760428410219-8b764bb4562f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1364'); /* استبدل هذا برابط صورة الخلفية */
+               background-size: cover;
+               color: white;
+           }
+           .container {
+               max-width: 500px;
+               margin: 50px auto;
+               background-color: rgba(0, 0, 0, 0.7);
+               padding: 20px;
+               border-radius: 10px;
+           }
+           input, select, button {
+               margin: 10px 0;
+               padding: 10px;
+               width: 100%;
+               border-radius: 5px;
+               border: none;
+           }
+           button {
+               background-color: #007bff;
+               color: white;
+               cursor: pointer;
+           }
+           button:hover {
+               background-color: #0056b3;
+           }
+       </style>
+   </head>
+   <body>
+       <div class="container">
+           <h1>استخراج جلسة تيليجرام</h1>
+           <form action="/extract" method="post">
+               <label for="api_id">API ID:</label>
+               <input type="text" id="api_id" name="api_id" required>
+
+               <label for="api_hash">API Hash:</label>
+               <input type="text" id="api_hash" name="api_hash" required>
+
+               <label for="phone_number">رقم الهاتف:</label>
+               <input type="text" id="phone_number" name="phone_number" required>
+
+               <label for="two_factor_code">رمز التحقق بخطوتين (إذا كان مفعلًا):</label>
+               <input type="text" id="two_factor_code" name="two_factor_code">
+
+               <label for="session_type">اختر نوع الجلسة:</label>
+               <select id="session_type" name="session_type">
+                   <option value="telethon">تيليثون</option>
+                   <option value="pyrogram">بايروجرام</option>
+               </select>
+
+               <button type="submit">بدء الاستخراج</button>
+           </form>
+
+           {% if session_string %}
+               <h2>سلسلة الجلسة:</h2>
+               <textarea rows="4" cols="50">{{ session_string }}</textarea>
+           {% endif %}
+       </div>
+   </body>
+   </html>
