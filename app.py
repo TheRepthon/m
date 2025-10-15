@@ -1,4 +1,3 @@
-   import os
    from flask import Flask, render_template, request
    from telethon import TelegramClient
    from pyrogram import Client
@@ -39,6 +38,4 @@
        return render_template('index.html', session_string=session_string)
 
    if __name__ == '__main__':
-       port = int(os.environ.get("PORT", 8080))
-       app.run(host='0.0.0.0', port=port)
-       app.run(debug=True)
+      app.run(debug=True)
